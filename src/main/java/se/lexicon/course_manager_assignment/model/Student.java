@@ -1,21 +1,18 @@
 package se.lexicon.course_manager_assignment.model;
-
 import java.util.Objects;
 
-public class Student {
 
+public class Student {
     private int studentId;
     private String studentName;
     private String email;
     private String address;
-
     public Student() {
-
     }
 
 
-
-    public Student(String studentName, String email, String address) {
+    public Student(int studentId, String studentName, String email, String address) {
+        this.studentId = studentId;
         this.studentName = studentName;
         this.email = email;
         this.address = address;
@@ -24,7 +21,6 @@ public class Student {
     public int getStudentId() {
         return studentId;
     }
-
     public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
