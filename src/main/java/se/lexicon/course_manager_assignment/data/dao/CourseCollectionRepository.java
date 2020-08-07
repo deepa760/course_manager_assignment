@@ -13,6 +13,10 @@ import java.util.*;
 public class CourseCollectionRepository implements CourseDao {
 
     private Collection<Course> courses;
+
+    public CourseCollectionRepository(Collection<Course> courses) {
+    }
+
     @Override
     public Course createCourse(Course course) {
 

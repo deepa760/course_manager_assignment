@@ -13,4 +13,6 @@ public interface StudentDao {
     List<Student> findByName(String name);
     List<Student> findAll();
     boolean removeStudent(Student student);
+
+    Student findByEmailIgnoreCase(String value);
 }

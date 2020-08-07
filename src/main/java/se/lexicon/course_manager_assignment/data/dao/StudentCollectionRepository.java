@@ -9,17 +9,13 @@ import se.lexicon.course_manager_assignment.model.Course;
 
 
 public class StudentCollectionRepository implements StudentDao{
-
    private Collection<Student> students;
-
-
     @Override
     public Student createStudent(Student student)
     {
      Student object=new Student(StudentSequencer.nextStudentId(),student.getStudentName(),student.getEmail(),student.getAddress() );
 
-
-        if (!students.contains(student)){
+       if (!students.contains(student)){
             students.add(student);
             System.out.println(student.getStudentName()+" added");
             return student;
@@ -81,6 +77,11 @@ public class StudentCollectionRepository implements StudentDao{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Student findByEmailIgnoreCase(String value) {
+        return null;
     }
 }
 
