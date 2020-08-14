@@ -1,5 +1,4 @@
 package se.lexicon.course_manager_assignment.data.service.student;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.lexicon.course_manager_assignment.data.dao.CourseDao;
@@ -8,9 +7,7 @@ import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.StudentView;
-
-
-import java.util.List;
+import se.lexicon.course_manager_assignment.model.Student;
 
 @Service
 public class StudentManager implements StudentService {
@@ -28,17 +25,49 @@ public class StudentManager implements StudentService {
 
     @Override
     public StudentView create(CreateStudentForm form) {
-        return null;
+
+      Student student=studentDao.createStudent(form.getName(), form.getEmail(), form.getAddress());
+        return converters.studentToStudentView(student);
     }
 
-    @Override
     public StudentView update(UpdateStudentForm form) {
+
+        Student toUpdate = studentDao.findById(form.getId());
+
+        if (toUpdate != null) {
+
+            toUpdate.setName(form.getName());
+
+            toUpdate.setEmail(form.getEmail());
+
+            toUpdate.setAddress(form.getAddress());
+
+            return converters.studentToStudentView(toUpdate);
+
+        }
+
         return null;
+
     }
 
+
+
     @Override
+
     public StudentView findById(int id) {
-        return null;
+
+        Student student = studentDao.findById(id);
+
+        if (student == null) {
+
+            return null;
+
+        } else {
+
+            return converters.studentToStudentView(student);
+
+        }
+
     }
 
     @Override

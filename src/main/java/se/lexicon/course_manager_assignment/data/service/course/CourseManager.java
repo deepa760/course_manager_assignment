@@ -1,5 +1,4 @@
 package se.lexicon.course_manager_assignment.data.service.course;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.lexicon.course_manager_assignment.data.dao.CourseDao;
@@ -8,10 +7,9 @@ import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateCourseForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateCourseForm;
 import se.lexicon.course_manager_assignment.dto.views.CourseView;
-
-
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Service
 public class CourseManager implements CourseService {
@@ -20,7 +18,6 @@ public class CourseManager implements CourseService {
     private final StudentDao studentDao;
     private final Converters converters;
 
-    @Autowired
     public CourseManager(CourseDao courseDao, StudentDao studentDao, Converters converters) {
         this.courseDao = courseDao;
         this.studentDao = studentDao;

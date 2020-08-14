@@ -84,6 +84,9 @@ public class Student {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    public void setName(String name) {
+    }
 }
 
 
