@@ -1,4 +1,7 @@
 package se.lexicon.course_manager_assignment.model;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import se.lexicon.course_manager_assignment.model.Course;
@@ -16,7 +19,12 @@ public class StudentTest {
     {
 
         testObject=new Student(1,"hema","hemaghg@gmail.com","Almhult");
+        assertEquals(1, testObject.getStudentId());
+        assertEquals("Hema", testObject.getStudentName());
+        assertEquals("hemaghg@gmail.com", testObject.getEmail());
+        assertEquals("India", testObject.getAddress());
 
+    }
 
     }
 
