@@ -33,43 +33,27 @@ public class StudentManager implements StudentService {
     public StudentView update(UpdateStudentForm form) {
 
         Student toUpdate = studentDao.findById(form.getId());
-
+//Returning the converters ....
         if (toUpdate != null) {
-
             toUpdate.setName(form.getName());
-
             toUpdate.setEmail(form.getEmail());
-
             toUpdate.setAddress(form.getAddress());
-
             return converters.studentToStudentView(toUpdate);
 
         }
 
-        return null;
-
-    }
-
-
-
-    @Override
-
-    public StudentView findById(int id) {
-
-        Student student = studentDao.findById(id);
-
-        if (student == null) {
-
             return null;
 
-        } else {
-
-            return converters.studentToStudentView(student);
-
-        }
-
     }
-
+    @Override
+    public StudentView findById(int id) {
+        Student student = studentDao.findById(id);
+        if (student == null) {
+            return null;
+        } else {
+            return converters.studentToStudentView(student);
+        }
+    }
     @Override
     public StudentView searchByEmail(String email) {
         return null;
