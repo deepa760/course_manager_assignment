@@ -1,12 +1,16 @@
 package se.lexicon.course_manager_assignment.data.service.course;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.lexicon.course_manager_assignment.data.dao.CourseDao;
 import se.lexicon.course_manager_assignment.data.dao.StudentDao;
 import se.lexicon.course_manager_assignment.data.service.converter.Converters;
 import se.lexicon.course_manager_assignment.dto.forms.CreateCourseForm;
+import se.lexicon.course_manager_assignment.dto.forms.CreateStudentForm;
 import se.lexicon.course_manager_assignment.dto.forms.UpdateCourseForm;
+import se.lexicon.course_manager_assignment.dto.forms.UpdateStudentForm;
 import se.lexicon.course_manager_assignment.dto.views.CourseView;
+import se.lexicon.course_manager_assignment.dto.views.StudentView;
+import se.lexicon.course_manager_assignment.model.Course;
+import se.lexicon.course_manager_assignment.model.Student;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,10 +28,25 @@ public class CourseManager implements CourseService {
         this.converters = converters;
     }
 
-    @Override
     public CourseView create(CreateCourseForm form) {
+
+        Course course=courseDao.createCourse(form.getCourseName(), form.getStartDate());
+        return converters.courseToCourseView(course);
+    }
+
+    public StudentView update(UpdateStudentForm form) {
+
+        Student toUpdate = studentDao.findById(form.getId());
+        //Returning the converters ....
+        if (toUpdate != null) {
+            toUpdate.setName(form.getName());
+            toUpdate.setEmail(form.getEmail());
+            toUpdate.setAddress(form.getAddress());
+            return converters.studentToStudentView(toUpdate);
+        }
         return null;
     }
+
 
     @Override
     public CourseView update(UpdateCourseForm form) {
