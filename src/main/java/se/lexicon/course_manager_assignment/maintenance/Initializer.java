@@ -45,7 +45,7 @@ public class Initializer {
     @Bean
     @Primary
     public StudentCollectionRepository studentDaoCollection(){
-        return new StudentCollectionRepository(students);
+        return new StudentCollectionRepository();
     }
 
     @Bean

@@ -14,4 +14,6 @@ public interface CourseDao {
     boolean removeCourse(Course course);
 
     Course createCourse(String courseName, LocalDate startDate);
+
+    void clear();
 }

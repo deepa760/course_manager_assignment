@@ -13,7 +13,6 @@ import java.util.*;
 
 public class StudentTest {
 
-
     private Student testObject;
     public void testObject_Successfully_created()
     {
@@ -29,4 +28,4 @@ public class StudentTest {
     }
 
 
-}
+

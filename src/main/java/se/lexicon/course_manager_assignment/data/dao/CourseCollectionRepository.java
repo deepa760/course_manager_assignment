@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 
-public class CourseCollectionRepository implements CourseDao {
+public  class CourseCollectionRepository implements CourseDao {
 
     private Collection<Course> courses;
 
@@ -86,5 +86,15 @@ public class CourseCollectionRepository implements CourseDao {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Course createCourse(String courseName, LocalDate startDate) {
+        return null;
+    }
+
+    @Override
+    public void clear() {
+
     }
 }
