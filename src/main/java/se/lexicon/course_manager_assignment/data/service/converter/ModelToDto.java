@@ -30,14 +30,19 @@ public class ModelToDto implements Converters {
     }
 
     @Override
-    public List<StudentView> studentsToStudentViews(Collection<Student> students)
+    public List<StudentView> studentsToStudentViews(Collection<Student> students) {
 
-          if (students == null)
-              student=new ArrayList<>();
-          for(Student student:Student) {
+        if (students == null)
+            students = new ArrayList<>();
 
-        objectview.add(studentToStudentView(student));
+        List<StudentView> studentViews = new ArrayList<>();
 
+        for (Student student : students) {
+
+            studentViews.add(studentToStudentView(student));
+
+        }
+
+        return studentViews;
     }
 }
-
